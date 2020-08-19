@@ -23,6 +23,12 @@ define profile::mariadb::ferm (
         notrack => true,
         srange  => '$INTERNAL',
     }
+    ferm::service{ "${rule_name}_labs":
+        proto   => 'tcp',
+        port    => $port,
+        notrack => true,
+        srange  => '172.16.0.0/12',
+    }
 
     # auxiliary port
     if $port == '3306' {

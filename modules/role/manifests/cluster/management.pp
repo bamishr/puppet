@@ -23,15 +23,15 @@ class role::cluster::management {
     include ::profile::pwstore
 
     include ::profile::mariadb::wmf_root_client
-    include ::profile::mariadb::backup::transfer
+    #include ::profile::mariadb::backup::transfer
 
-    include ::profile::netops::ripeatlas::cli
-    include ::profile::homer
+    #include ::profile::netops::ripeatlas::cli
+    #include ::profile::homer
 
     include ::profile::sre::os_updates
 
     # Backup all of /srv, including deployment, homer and  pwstore
     # move to a corresponding profile if the other profiles are split away
-    include ::profile::backup::host
-    include ::profile::cluster::management::backup
+    #include ::profile::backup::host
+    #include ::profile::cluster::management::backup
 }
